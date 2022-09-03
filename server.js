@@ -1,14 +1,11 @@
 // A simple API created with express.js
 
-const express = require('express')  
+const express = require('express') ; 
 // Now app can use all the methods that cane with express
-const serverless = require("serverless-http");
-
 const app = express();
-const router = express.Router();
-var cors = require('cors')
+var cors = require('cors');
 const PORT = 8000;
-app.use(cors())
+app.use(cors());
 
 
 const motivationalquotes = {
@@ -88,7 +85,7 @@ const motivationalquotes = {
 // Network request firing a function.
 //  '__dirname' instructs the server to look in the current directory for the index.html file, which is set as our main path.
 // If get request is heard, HTML file will be sent 
-  router.get('/', (request, response) => {
+  app.get('/', (request, response) => {
     response.sendFile(__dirname + '/index.html')
 })
 
@@ -99,16 +96,15 @@ const motivationalquotes = {
 //     response.json(motivationalquotes[quote])
 // })
 
-router.get('/api/random', (request, response) => {
+app.get('/api/random', (request, response) => {
     let randomNum = String(Math.ceil(Math.random() * 10))
     response.json(motivationalquotes[randomNum])
 })
 
 // Set up to listen on PORT, when server is running, body runs
-router.listen( process.env.PORT || PORT, () => {
+app.listen( process.env.PORT || PORT, () => {
     console.log(`The server is now running on port ${PORT}`)
 })
 
-module.exports = app;
-module.exports.handler = serverless(app);
+
 // Start server with command: node server.js
