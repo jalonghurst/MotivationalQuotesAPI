@@ -102,7 +102,7 @@ app.get('/api/random', (request, response) => {
 })
 
 // Set up to listen on PORT, when server is running, body runs
-app.listen(PORT, () => {
+app.listen( process.env.PORT || PORT, () => {
     console.log(`The server is now running on port ${PORT}`)
 })
 
