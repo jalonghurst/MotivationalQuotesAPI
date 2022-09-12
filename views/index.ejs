@@ -5,14 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link  rel="stylesheet" type="text/css" href="styles.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <title>Motivational Quotes API</title>
 </head>
 <body>
     <h1>Motivational Quotes API</h1>
     <div>
-        <form action="/quotes" method="POST">
+        <form action="/addQuote" method="POST">
             <input type="text" placeholder="author" name="author">
             <input type="text" placeholder="quote" name="quote">
+            <input type="text" placeholder="genre" name="genre">
             <button type="submit">Submit</button>
           </form>  
                 
@@ -23,11 +25,15 @@
 <ul class="quotes">
   <!-- Loop through quotes -->
   <% for(var i = 0; i < quotes.length; i++) {%>
-    <li class="quote">
+    <li class="quote"> 
+       <!-- Output quote from the iterated quote object -->
+      <span><%= quotes[i].quote %></span>
       <!-- Output name from the iterated quote object -->
       <span><%= quotes[i].author %></span>:
       <!-- Output quote from the iterated quote object -->
-      <span><%= quotes[i].quote %></span>
+      <span>genre: <%= quotes[i].genre %></span>
+
+      <span class="fa fa-trash"></span>
     </li>
   <% } %>
 </ul>
