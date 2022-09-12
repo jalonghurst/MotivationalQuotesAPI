@@ -9,19 +9,21 @@
     <title>Motivational Quotes API</title>
 </head>
 <body>
+  <div class="card">
     <h1>Motivational Quotes API</h1>
     <div>
         <form action="/addQuote" method="POST">
-            <input type="text" placeholder="author" name="author">
-            <input type="text" placeholder="quote" name="quote">
-            <input type="text" placeholder="genre" name="genre">
+            <input type="text" placeholder="Author" name="author">
+            <input type="text" placeholder="Quote" name="quote">
+            <input type="text" placeholder="Genre" name="genre">
             <button type="submit">Submit</button>
           </form>  
                 
     </div>
     <p>Please use https://api-motivational-quotes.herokuapp.com/api/random</p>
+  </div>
+<div class="card">
     <h2> Quotes </h2>
-
 <ul class="quotes">
   <!-- Loop through quotes -->
   <% for(var i = 0; i < quotes.length; i++) {%>
@@ -37,6 +39,7 @@
     </li>
   <% } %>
 </ul>
+</div>
 <script src="/main.js"></script>
 </body>
 </html>
