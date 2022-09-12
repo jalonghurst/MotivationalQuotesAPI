@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,8 +14,23 @@
             <input type="text" placeholder="author" name="author">
             <input type="text" placeholder="quote" name="quote">
             <button type="submit">Submit</button>
-          </form>          
+          </form>  
+                
     </div>
     <p>Please use https://api-motivational-quotes.herokuapp.com/api/random</p>
+    <h2> Quotes </h2>
+
+<ul class="quotes">
+  <!-- Loop through quotes -->
+  <% for(var i = 0; i < quotes.length; i++) {%>
+    <li class="quote">
+      <!-- Output name from the iterated quote object -->
+      <span><%= quotes[i].author %></span>:
+      <!-- Output quote from the iterated quote object -->
+      <span><%= quotes[i].quote %></span>
+    </li>
+  <% } %>
+</ul>
+<script src="/main.js"></script>
 </body>
 </html>

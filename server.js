@@ -1,12 +1,12 @@
 // A simple API created with express.js
-
 const express = require('express') ; 
+const bodyParser= require('body-parser')
+const MongoClient = require('mongodb').MongoClient
 // Now app can use all the methods that cane with express
 const app = express();
 var cors = require('cors');
 const PORT = 8000;
 app.use(cors());
-
 
 const motivationalquotes = {
     '1': {
@@ -82,29 +82,71 @@ const motivationalquotes = {
 
 }
 
-// Network request firing a function.
-//  '__dirname' instructs the server to look in the current directory for the index.html file, which is set as our main path.
-// If get request is heard, HTML file will be sent 
-  app.get('/', (request, response) => {
-    response.sendFile(__dirname + '/index.html')
-})
+MongoClient.connect("mongodb+srv://motivationalquotesapi:4yWtwbJoyMCFywbE@cluster0.lwvtln3.mongodb.net/?retryWrites=true&w=majority")
+.then(client => {
+    console.log('Connected to Database')
+    const db = client.db('motivationalquotesapi')
+    const quotesCollection = db.collection('quotes')
 
 // Respond with JSON if a request is made for API route
 // app.get('/api/:quote', (request, response) => {
 //     const quote = request.params.quote.toLowerCase()
-
 //     response.json(motivationalquotes[quote])
 // })
-
-app.get('/api/random', (request, response) => {
-    let randomNum = String(Math.ceil(Math.random() * 10))
-    response.json(motivationalquotes[randomNum])
-})
-
-// Set up to listen on PORT, when server is running, body runs
-app.listen( process.env.PORT || PORT, () => {
-    console.log(`The server is now running on port ${PORT}`)
-})
+    app.set('view engine', 'ejs')
+// Always place body-parser before your CRUD handlers!
+    app.use(bodyParser.urlencoded({ extended: true }))
+    app.use(express.static('public'))
 
 
-// Start server with command: node server.js
+    // JSON motivationalquotes Hardcorded get request 
+    // app.get('/api/random', (request, response) => {
+    //     let randomNum = String(Math.ceil(Math.random() * 10))
+    //     response.json(motivationalquotes[randomNum])
+    // })
+
+    app.get('/api/random', (request, response) => {
+        let randomNum = String(Math.ceil(Math.random() * 10))
+        db.collection('quotes').find().toArray()
+        .then(results => {
+        console.log(results)
+        // response.sendFile(__dirname + '/index.html')
+        response.json(results[randomNum])
+        })
+        .catch(error => console.error(error))
+    
+}) 
+
+
+
+    app.get('/', (req, res) => {
+        db.collection('quotes').find().toArray()
+            .then(results => {
+            // console.log(results)
+            // response.sendFile(__dirname + '/index.html')
+            res.render('index.ejs', {quotes: results})
+            })
+            .catch(error => console.error(error))
+        
+    }) 
+
+
+    app.post('/quotes', (req, res) => {
+        quotesCollection.insertOne(req.body)
+        .then(result => {
+            res.redirect('/')
+        })
+        .catch(error => console.error(error))
+    })
+
+    // Set up to listen on PORT, when server is running, body runs
+    app.listen( process.env.PORT || PORT, () => {
+        console.log(`The server is now running on port ${PORT}`)
+    })
+
+    })
+
+    .catch(error => console.error(error))
+    // Network request firing a function.
+    //  '__dirname' instructs the server to look in the current directory for the index.html file, which is set as our main path.
+    // If get request is heard, HTML file will be sent 
