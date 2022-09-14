@@ -1,6 +1,6 @@
 This CRUD API started as a node backend server working with raw and hardcoded JSON data with an endpoint displaying a random quote. Express.js was then incorportated to  simplify the process of writing server side JavaScript, HTTP requests and to improve readability, and EJS set up as the templating engine rendering HTML. MongoDB was finally connected to this application, and has replaced the raw JSON data and updated the endpoint to get data from the collection containing quotes(documents) stored on the database. 
 
-This fullstack app features an interface to interact with the database using clientside JavaScript to GET, POST, UPDATE and DELETE the motivational quotes in the collection. 
+This fullstack app features an interface to interact with the database using HTTP requests made through clientside JavaScript to GET, POST, UPDATE and DELETE the motivational quotes in the collection. 
 
 Endpoint/s:
 
