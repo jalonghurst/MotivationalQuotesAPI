@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link  rel="stylesheet" type="text/css" href="styles.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<title>Motivational Quotes API</title>
+</head>
+<body>
+  <div class="card">
+    <h1>Motivational Quotes API</h1>
+    <div>
+        <form action="api/addQuote" method="POST">
+            <input type="text" placeholder="Author" name="author">
+            <input type="text" placeholder="Quote" name="quote">
+            <input type="text" placeholder="Genre" name="genre">
+            <button type="submit">Submit</button>
+          </form>  
+                
+    </div>
+    <p>Please use https://api-motivational-quotes.herokuapp.com/api/random</p>
+  </div>
+<div class="card">
+    <h2> Quotes <h4>(<%= count %>)</h4></h2>
+    <ul class="quotes">
+  <!-- Loop through quotes -->
+  <% quotes.forEach( el => { %>
+    <li class="quote"  data-id='<%=el._id%>'> 
+       <!-- Output quote from the iterated quote object -->
+      <span class="italic"><%= el.quote %></span>
+      <!-- Output name from the iterated quote object -->
+      <span><%= el.author %></span>
+      <!-- Output quote from the iterated quote object -->
+      <span><%= el.genre %></span>
+      <span class="fas fa-pencil-alt"></span>
+      <span class="fa fa-trash"></span>
+      
+    </li>
+  <% }) %>
+</ul>
+</div>
+<script src="/main.js"></script>
+</body>
+</html>

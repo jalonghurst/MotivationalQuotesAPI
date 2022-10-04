@@ -6,40 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link  rel="stylesheet" type="text/css" href="styles.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <title>Motivational Quotes API</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<title>Motivational Quotes API</title>
 </head>
 <body>
-  <div class="card">
-    <h1>Motivational Quotes API</h1>
-    <div>
-        <form action="/addQuote" method="POST">
-            <input type="text" placeholder="Author" name="author">
-            <input type="text" placeholder="Quote" name="quote">
-            <input type="text" placeholder="Genre" name="genre">
-            <button type="submit">Submit</button>
-          </form>  
-                
-    </div>
-    <p>Please use https://api-motivational-quotes.herokuapp.com/api/random</p>
-  </div>
-<div class="card">
-    <h2> Quotes </h2>
-<ul class="quotes">
-  <!-- Loop through quotes -->
-  <% for(var i = 0; i < quotes.length; i++) {%>
-    <li class="quote"> 
-       <!-- Output quote from the iterated quote object -->
-      <span><%= quotes[i].quote %></span>
-      <!-- Output name from the iterated quote object -->
-      <span><%= quotes[i].author %></span>
-      <!-- Output quote from the iterated quote object -->
-      <span>genre: <%= quotes[i].genre %></span>
-
-      <span class="fa fa-trash"></span>
-    </li>
-  <% } %>
-</ul>
-</div>
+    <h1>Create A Quote By Clicking The Button Below</h1>
+    <a href="/api"> New Quote</a>
 <script src="/main.js"></script>
+
 </body>
 </html>
