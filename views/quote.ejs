@@ -18,7 +18,15 @@
         <form action="api/addQuote" method="POST">
             <input type="text" placeholder="Author" name="author">
             <input type="text" placeholder="Quote" name="quote">
-            <input type="text" placeholder="Genre" name="genre">
+            <!-- <input type="text" placeholder="Genre" name="genre"> -->
+            <label for="genre">Choose genre:</label>
+            <select name="genre" id="genre">
+              <option value="">-</option>
+              <option value="Positivity">Positivity</option>
+              <option value="Inspiration">Inspiration</option>
+              <option value="Discipline">Discipline</option>
+              <option value="Motivation">Motivation</option>
+            </select>
             <button type="submit">Submit</button>
           </form>  
                 
@@ -36,7 +44,7 @@
       <!-- Output name from the iterated quote object -->
       <span><%= el.author %></span>
       <!-- Output quote from the iterated quote object -->
-      <span><%= el.genre %></span>
+      <span class="grey"><%= el.genre %></span>
       <span class="fas fa-pencil-alt"></span>
       <span class="fa fa-trash"></span>
       
