@@ -3,7 +3,7 @@ This fullstack app features an interface to interact with the database using HTT
 
 New quotes can be created submitting data for the quote, author and genre.
 
- **Link To Project:** https://motivational-quotes-api-yb79.onrender.com/api/
+ **Link To Project:** https://motivational-quotes-api-yb79.onrender.com/api
 
  A random quote from the  database can be generated using the link below.
 
