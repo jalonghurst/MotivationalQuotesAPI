@@ -5,4 +5,4 @@ This fullstack app features an interface to interact with the database using HTT
 Endpoint/s:
 
 Generate a random document from the quotes collection in MongoDB database, the GET response is in JSON format. Each document contains {id: author: quote: genre:} key-value pairs. 
-Use this address: https://api-motivational-quotes.herokuapp.com/api/random
+Use this address: https://motivational-quotes-api-yb79.onrender.com/api/random

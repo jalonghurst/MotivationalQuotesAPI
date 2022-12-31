@@ -12,7 +12,11 @@ const QuoteSchema = new mongoose.Schema({
   genre: {
     type: String,
     required: false,
-  } 
+  },
+  favorite: {
+    type: Boolean,
+    required: true,
+  }
 }, { collection : 'quotes' })
 
 module.exports = mongoose.model('Quote', QuoteSchema);

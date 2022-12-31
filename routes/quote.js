@@ -8,13 +8,7 @@ router.get('/random', quoteController.getRandom)
 
 router.post('/addQuote', quoteController.addQuote)
 
-// router.put('/changeItemGenre', quoteController.changeItemGenre)
-
-
-// router.put('/markComplete', quoteController.markComplete)
-
-// router.put('/markIncomplete', quoteController.markIncomplete)
-
+router.put('/markFavorited', quoteController.markFavorited)
 
 router.delete('/deleteQuote', quoteController.deleteQuote)
 

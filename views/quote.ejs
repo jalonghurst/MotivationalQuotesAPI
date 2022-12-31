@@ -7,9 +7,10 @@
     <link  rel="stylesheet" type="text/css" href="styles.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-<title>Motivational Quotes API</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <title>Motivational Quotes API</title>
 </head>
 <body>
   <div class="card">
@@ -31,7 +32,7 @@
           </form>  
                 
     </div>
-    <p>Please use https://api-motivational-quotes.herokuapp.com/api/random</p>
+    <p>Please use this link to generate a random quote<a href="https://motivational-quotes-api-yb79.onrender.com/api/random">https://motivational-quotes-api-yb79.onrender.com/api/random</a></p>
   </div>
 <div class="card">
     <h2> Quotes <h4>(<%= count %>)</h4></h2>
@@ -45,7 +46,12 @@
       <span><%= el.author %></span>
       <!-- Output quote from the iterated quote object -->
       <span class="grey"><%= el.genre %></span>
-      <span class="fas fa-pencil-alt"></span>
+        <!-- <label for="my-modalbio-edit" class="m-2 text-sky-800 cursor-pointer"><i class="far fa-edit"></i></label> -->
+      <!-- <% if(el.favorite) { %>
+      <span class="fas fa-heart"></span>
+      <% } else { %>
+      <span class="far fa-heart"></span>
+      <% } %>  -->
       <span class="fa fa-trash"></span>
       
     </li>

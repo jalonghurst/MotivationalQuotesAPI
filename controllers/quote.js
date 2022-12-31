@@ -40,5 +40,17 @@ module.exports = {
         })
         .catch(error => console.error(error))
     
-    }
+    },
+
+    markFavorited: async (req, res)=>{
+        try{
+            await Quote.findOneAndUpdate({_id:req.body.quoteIdFromJsFile},{
+                favorite: true,
+            })
+            console.log('Marked Favorite')
+            res.json('Marked Favorite')
+        }catch(err){
+            console.log(err)
+        }
+    },
 }
