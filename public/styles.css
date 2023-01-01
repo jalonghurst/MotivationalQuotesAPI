@@ -1,7 +1,6 @@
 * {
     box-sizing: border-box;
     overflow:auto;
-    text-align:justify;
     font-family: 'Philosopher', sans-serif;
 }
 
@@ -9,31 +8,77 @@ body {
     width: 100%;
     height: 100%;
     margin: auto;
-    background-image: url('./background2.jpg');
-    background-size: cover;
+    background: rgb(41,53,108);
+    background: radial-gradient(circle, rgba(41,53,108,1) 73%, rgba(0,0,0,1) 100%);
 
 }
+button, input, select {
+    border-radius: 3em;
+    border-color: 1px solid grey;
+    padding:10px;
+    cursor: pointer;
+}
+
 
 .card {
     margin: auto;   
-    width: 80%;
+    width: 50%;
     border-radius: 3em;
-    padding: 5%;
-    margin-top: 5%;
-    margin-bottom: 5%;
-    background: white;
+    padding: 2%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    background-color: white;
+
 }
 
 span {
     display: block;
 }
+
+.border {
+    border: grey solid 1px;
+}
+
+.center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 .italic {
     font-style: italic ;
 }
 .fa, .fas {
-    color: rgb(165, 165, 194);
+    color: rgb(136, 136, 160);
     cursor: pointer;
 }
 .grey {
-    color: rgb(165, 165, 194);
+    color: rgb(136, 136, 160);
 }
+
+@media screen and (max-width: 1300px) {
+ .card {
+    width: 90%;
+    padding: 5%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+   form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   }
+
+
+form input, form button, form select {
+    margin: 1%;
+}
+}
+
+@media screen and (max-width: 740px) {
+
+   .quote {
+    padding: 7%; 
+   }
+   }

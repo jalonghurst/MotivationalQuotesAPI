@@ -13,14 +13,16 @@
     <title>Motivational Quotes API</title>
 </head>
 <body>
-  <div class="card">
+  <div class="card border center">
     <h1>Motivational Quotes API</h1>
     <div>
+       
         <form action="api/addQuote" method="POST">
+            <p class="center">Use this form to add a new quote to the collection.</p>
             <input type="text" placeholder="Author" name="author">
             <input type="text" placeholder="Quote" name="quote">
-            <!-- <input type="text" placeholder="Genre" name="genre"> -->
-            <label for="genre">Choose genre:</label>
+       
+            <label for="genre">Genre:</label>
             <select name="genre" id="genre">
               <option value="">-</option>
               <option value="Positivity">Positivity</option>
@@ -32,9 +34,17 @@
           </form>  
                 
     </div>
-    <p>Please use this link to generate a random quote<a href="https://motivational-quotes-api-yb79.onrender.com/api/random">https://motivational-quotes-api-yb79.onrender.com/api/random</a></p>
+    <div class="quote card border center">
+     <% let random = String(Math.ceil(Math.random() * quotes.length - 1))%>
+     <%= quotes[random].quote %>
+     <span class="grey">- <%= quotes[random].author%></span>
+    </div>
+    <a href="/api"><button>Generate a new random quote</button></a>
+  
+    <p>Use the link below to generate a random quote to add to your project:
+      <p><a href="https://motivational-quotes-api-yb79.onrender.com/api/random">https://motivational-quotes-api-yb79.onrender.com/api/random</a></p></p>
   </div>
-<div class="card">
+<div class="card border">
     <h2> Quotes <h4>(<%= count %>)</h4></h2>
     <ul class="quotes">
   <!-- Loop through quotes -->

@@ -14,12 +14,11 @@ module.exports = {
 
 
     getRandom: (request, response) => {
-        let randomNum = String(Math.ceil(Math.random() * 10))
         Quote.find()
         .then(results => {
-        console.log(results)
+            console.log(results.length)
         // response.sendFile(__dirname + '/index.html')
-        response.json(results[randomNum])
+        response.json(results[String(Math.ceil(Math.random() * results.length-1))])
         })
         .catch(error => console.error(error))
     
