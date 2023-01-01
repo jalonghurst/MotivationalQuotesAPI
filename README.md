@@ -13,3 +13,5 @@ This CRUD API started as a node backend server working with raw and hardcoded JS
 **Link To Generate A Random Quote:** https://motivational-quotes-api-yb79.onrender.com/api/random
 
 Generate a random document from the quotes collection in MongoDB database, the GET response is in JSON format. Each document contains {id: author: quote: genre:} key-value pairs.
+
+![Screen capture](/public/screencapture-motivational-quotes-api.png)
